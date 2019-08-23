@@ -21,6 +21,8 @@
 
     wnck-pager
 
+----
+
 ### Plugin themeing examples
 
 Panelbar background color.
