@@ -23,7 +23,29 @@
 
 ----
 
-### Plugin themeing examples
+### GTK3 Theme testing and debugging
+
+For testing, you can make modifications in the override file located at `~/.config/gtk-3.0/gtk.css`. If the directory path doesn't exist, then you will have to create it.
+
+    mkdir -p  ~/.config/gtk-3.0
+
+To see your modifications applied, you can reset the xfce4-panel process by typing the following command into a terminal:
+
+    xfce4-panel -r
+
+For debugging, you can use the [GtkInspector tool from GNOME.](https://wiki.gnome.org/action/show/Projects/GTK/Inspector?action=show&redirect=Projects%2FGTK%2B%2FInspector). To inspect the XFCE panelbar and its plugins, you can perform the following:
+
+Kill the current xfce panel process:
+
+    pkill xfce4-panel
+
+Start the panel process with GtkInspector debugging enabled:
+
+    GTK_DEBUG=interactive xfce4-panel
+
+----
+
+### Plugin theming examples
 
 Panelbar background color.
 
@@ -57,7 +79,7 @@ Pulseaudio menu mpris buttons.
 
     #pulseaudio-button menu .linked button {
       color: lightblue;   /* This will apply a colour to the mpris button icons */
-      border-color: gray; }  /* This will apply a cololur to the mpris button border */
+      border-color: gray; }  /* This will apply a colour to the mpris button border */
 
 <p align="left">
 <img src="Screenshots/pulseaudio_menu.png" alt="Pulseaudio menu MPRIS buttons"/>
@@ -65,7 +87,7 @@ Pulseaudio menu mpris buttons.
 
 *The pulseaudio menu contains common GTK widgets such as a scale, trough, switch, and slider.*
 
-Workspace switcher colours for selected and active states.
+Workspace switcher colours for selected and hover states.
 
     wnck-pager:selected {
       background-color: lightblue; }
@@ -75,3 +97,17 @@ Workspace switcher colours for selected and active states.
 <p align="left">
 <img src="Screenshots/workspace_switcher.png" alt="Panelbar workspace switcher"/>
 </p>
+
+Clock colours and font style:
+
+    #clock-button {
+      color: black;
+      font-style: italic;
+      background-color: lightblue; }
+
+<p align="left">
+<img src="Screenshots/panel_clock.png" alt="Panelbar clock"/>
+</p>
+
+----
+
